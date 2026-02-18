@@ -118,14 +118,20 @@
         }
         .btn-order:hover { opacity: 0.9; }
 
+
+
         /* --- RESPONSIVE MOBILE FIX --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            
-            /* Sembunyikan teks brand di mobile */
+            .hero-content h1 { font-size: 2.5rem; }
+            .price-card.featured { transform: scale(1); }
+
+            /* Sembunyikan teks brand di mobile agar navigasi cukup */
             .brand-text { display: none !important; }
 
-            /* Navigasi tetap satu baris */
+            /* Logo dikecilkan sedikit */
+            .nav-logo-img { height: 40px !important; margin-right: 0 !important; }
+
+            /* Menu navigasi satu baris */
             nav div[style*="display: flex; gap: 20px"] {
                 gap: 12px !important;
                 flex-wrap: nowrap !important;
@@ -135,11 +141,18 @@
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
             }
-
-            .nav-logo-img { height: 40px !important; }
-            
-            .tab-btn { padding: 8px 15px; font-size: 0.85rem; }
         }
+
+
+
+
+
+
+
+
+
+
+
 
 
         /* --- WhatsApp Floating Button --- */
@@ -167,7 +180,7 @@
 
 
 
-        
+
     </style>
 </head>
 <body>
