@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nila Catering | Kelezatan Autentik Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #8B4513; /* Cokelat Rempah */
+            --secondary-color: #D4AF37; /* Emas Kunyit */
+            --dark-color: #2D2D2D;
+            --light-color: #F9F4F0;
+        }
+
+        * { margin: 0; padding: 0; box-box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark-color); background-color: white; }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=2044&auto=format&fit=crop'); /* Placeholder image masakan */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
+
+        /* --- Buttons --- */
+        .btn {
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-primary { background-color: var(--secondary-color); color: white; margin-right: 10px; }
+        .btn-secondary { border: 2px solid white; color: white; }
+        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        /* --- Pricing Table --- */
+        .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .price-card {
+            border: 1px solid #eee;
+            padding: 40px;
+            border-radius: 15px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .price-card.featured { border: 2px solid var(--secondary-color); transform: scale(1.05); background: var(--light-color); }
+        .badge { background: var(--secondary-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; position: absolute; top: -15px; left: 50%; translate: -50%; }
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .price-amount { font-size: 2rem; color: var(--primary-color); font-weight: 700; margin-bottom: 20px; }
+        .price-list { list-style: none; margin-bottom: 30px; text-align: left; }
+        .price-list li { margin-bottom: 10px; font-size: 0.9rem; }
+        .price-list li i { color: green; margin-right: 10px; }
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .price-card.featured { transform: scale(1); }
+        }
+
+        /* Styling untuk gambar kecil di dalam card */
+.menu-img-wrapper {
+    width: 100%;       /* Ukuran lebar gambar kecil */
+    height: auto;      /* Ukuran tinggi gambar kecil */
+    margin: 15px auto;  /* Jarak antar teks dan posisi tengah */
+    overflow: hidden;
+    border-radius: 12px; /* Membuat sudut gambar tumpul/estetik */
+    border: 2px solid #eee;
+}
+
+.menu-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Memastikan gambar tetap proporsional (tidak gepeng) */
+    display: block;
+}
+
+/* Tambahan: pastikan price-card memiliki text-align center */
+.price-card {
+    text-align: center;
+    padding: 25px;
+}
+
+
+/* Tombol Menu Lainnya dengan gaya Outline */
+.btn-outline-primary {
+    padding: 15px 40px;
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 30px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+}
+
+    </style>
+</head>
+<body>
+
+    <nav style="background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <a href="index.html" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); text-decoration: none; font-size: 1.5rem;">Nila Catering</a>
+        <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Beranda</a>
+            <a href="menu.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Daftar Menu</a>
+            <a href="contact.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Kelezatan Autentik Nusantara</h1>
+            <p>Warisan kuliner Indonesia dengan bumbu rempah asli pilihan. Higienis, Premium, dan Tepat Waktu.</p>
+            <a href="#menu" class="btn btn-primary">Lihat Menu</a>
+            <a href="https://wa.me/62812345678" class="btn btn-secondary">Konsultasi Gratis</a>
+        </div>
+    </section>
+
+
+
+
+    <div style="background: #8B4513; color: white; padding: 15px; text-align: center; font-size: 0.9rem;">
+    <strong>Promo Member:</strong> Simpan kartu ucapan dari box kami dan dapatkan diskon 5% untuk pemesanan selanjutnya! 
+    <a href="https://wa.me/62812345678" style="color: #D4AF37; margin-left: 10px; font-weight: bold;">Klaim Diskon via WA</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="menu" class="section-padding">
+        <h2>Pilihan Paket Katering</h2>
+        <p>Sesuaikan dengan kebutuhan acara spesial Anda</p>
+
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Paket Karya</h3>
+                <img class="menu-img-wrapper" src="menu/paket-karya.jpg" alt="Paket Karya">
+                <div class="price-amount">Rp 25.000</div>
+                <ul class="price-list">
+                    <li><i class="fas fa-check"></i> Nasi Putih Pulen</li>
+                    <li><i class="fas fa-check"></i> Olahan Ayam (Bakar/Goreng)</li>
+                    <li><i class="fas fa-check"></i> Telur + Sambal + Lalap</li>
+                    <li><i class="fas fa-check"></i> Bento Box Standard</li>
+                </ul>
+                <a href="https://wa.me/62812345678" class="btn btn-primary">Pilih Paket</a>
+            </div>
+
+            <div class="price-card featured">
+                <div class="badge">BEST SELLER</div>
+                <h3>Paket Nusantara</h3>
+                <img class="menu-img-wrapper" src="menu/paket-nusantara.jpg" alt="Paket Nusantara">
+                <div class="price-amount">Rp 45.000</div>
+                <ul class="price-list">
+                    <li><i class="fas fa-check"></i> Nasi Kuning / Uduk</li>
+                    <li><i class="fas fa-check"></i> Rendang Daging / Empal</li>
+                    <li><i class="fas fa-check"></i> Sayur Lodeh / Asem</li>
+                    <li><i class="fas fa-check"></i> Box Eksklusif + Alat Makan</li>
+                </ul>
+                <a href="https://wa.me/62812345678" class="btn btn-primary">Pilih Paket</a>
+            </div>
+
+            <div class="price-card">
+                <h3>Paket Warisan</h3>
+                <img class="menu-img-wrapper" src="menu/paket-warisan.jpg" alt="Paket Warisan">
+                <div class="price-amount">Rp 85.000</div>
+                <ul class="price-list">
+                    <li><i class="fas fa-check"></i> Nasi Pandan / Merah</li>
+                    <li><i class="fas fa-check"></i> Kakap / Udang Galah / Lidah</li>
+                    <li><i class="fas fa-check"></i> Tumis Asparagus + Telur Balado</li>
+                    <li><i class="fas fa-check"></i> Packaging Besek Bambu Mewah</li>
+                </ul>
+                <a href="https://wa.me/62812345678" class="btn btn-primary">Pilih Paket</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+<div style="margin-top: 50px; text-align: center; padding-bottom: 50px;">
+        <p style="margin-bottom: 20px; color: #666;">Ingin pilihan menu tumpeng, snack box, atau prasmanan lainnya?</p>
+        <a href="menu.html" class="btn-outline-primary">
+            Lihat Menu Lainnya <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        </a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+    <section class="section-padding" style="background-color: var(--light-color);">
+        <h2>Apa Kata Mereka?</h2>
+        <div class="pricing-container">
+            <div class="price-card" style="background: white;">
+                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap. Pas buat acara lamaran kemarin."</p>
+                <h4 style="margin-top: 15px; color: var(--primary-color);">- Ibu Sari, Jakarta</h4>
+            </div>
+            <div class="price-card" style="background: white;">
+                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka, porsinya juga pas!"</p>
+                <h4 style="margin-top: 15px; color: var(--primary-color);">- Bpk. Andi, HRD Tech Corp</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <h2>Konsultasi Menu & Pemesanan</h2>
+        <p>Isi formulir di bawah ini, tim kami akan segera menghubungi Anda.</p>
+        <form style="max-width: 600px; margin: 40px auto; text-align: left; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">Nama Lengkap</label>
+                <input type="text" placeholder="Contoh: Budi Santoso" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">Pilihan Paket</label>
+                <select style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <option>Paket Karya (Rp 25rb)</option>
+                    <option>Paket Nusantara (Rp 45rb)</option>
+                    <option>Paket Warisan (Rp 85rb)</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">Pesan Tambahan (Opsional)</label>
+                <textarea rows="4" placeholder="Sebutkan tanggal acara atau permintaan khusus..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Kirim Permintaan</button>
+        </form>
+    </section>
+
+    <footer style="background: var(--dark-color); color: white; padding: 40px 20px; text-align: center;">
+        <p>&copy; 2023 Nila Catering. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Jl. Rempah Wangi No. 12, Jakarta | Telp: 0812-3456-78</p>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

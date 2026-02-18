@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Lengkap | Nila Catering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #8B4513;
+            --accent: #D4AF37;
+            --bg-light: #FDFBF9;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: #333; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        header { text-align: center; margin-bottom: 50px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); }
+
+        /* Tabs Styling */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .tab-btn {
+            padding: 12px 25px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .menu-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
+        
+        .menu-info { padding: 25px; }
+        .menu-info h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.3rem; }
+        .menu-detail { font-size: 0.85rem; color: #666; margin-bottom: 15px; min-height: 40px; }
+        .menu-price { font-weight: 700; color: #27ae60; font-size: 1.2rem; display: block; margin-bottom: 15px; }
+
+        .btn-order {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Category Filter Logic (Simple CSS-only) */
+        .menu-card { display: block; }
+        
+        /* Helper Classes */
+        .text-center { text-align: center; }
+        .hidden { display: none; }
+
+
+
+                /* Styling untuk gambar kecil di dalam card */
+.menu-img-wrapper {
+    width: 100%;       /* Ukuran lebar gambar kecil */
+    height: auto;      /* Ukuran tinggi gambar kecil */
+    margin: 15px auto;  /* Jarak antar teks dan posisi tengah */
+    overflow: hidden;
+    border-radius: 12px; /* Membuat sudut gambar tumpul/estetik */
+    border: 2px solid #eee;
+}
+
+.menu-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Memastikan gambar tetap proporsional (tidak gepeng) */
+    display: block;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<nav style="background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <a href="index.html" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); text-decoration: none; font-size: 1.5rem;">Nila Catering</a>
+        <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Beranda</a>
+            <a href="menu.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Daftar Menu</a>
+            <a href="contact.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Katalog Menu Kami</h1>
+        <p>Pilih hidangan terbaik untuk momen istimewa Anda</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="filterMenu('all')">Semua</button>
+        <button class="tab-btn" onclick="filterMenu('tumpeng')">Nasi Tumpeng</button>
+        <button class="tab-btn" onclick="filterMenu('prasmanan')">Prasmanan</button>
+        <button class="tab-btn" onclick="filterMenu('kotak')">Nasi Kotak</button>
+        <button class="tab-btn" onclick="filterMenu('snack')">Snack Box</button>
+    </div>
+
+    <div class="menu-grid" id="menu-container">
+        <div class="menu-card" data-category="tumpeng">
+            <div class="menu-info">
+                <h3>Tumpeng Kuning Agung</h3>
+                <img class="menu-img-wrapper" src="menu/tumpeng-kuning-agung.jpg" alt="Tumpeng Kuning Agung">
+                <p class="menu-detail">Nasi Kuning, Ayam Goreng, Perkedel, Sambal Goreng Ati, Telur Rawis, Urap Sayur.</p>
+                <span class="menu-price">Rp 500.000 <small>(10 Porsi)</small></span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="tumpeng">
+            <div class="menu-info">
+                <h3>Tumpeng Mini (Personal)</h3>
+                <img class="menu-img-wrapper" src="menu/tumpeng-mini.jpg" alt="Tumpeng Mini">
+                <p class="menu-detail">Ayam Bakar, Serundeng, Oreg Tempe, Perkedel, Sambal.</p>
+                <span class="menu-price">Rp 35.000 /pax</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="prasmanan">
+            <div class="menu-info">
+                <h3>Prasmanan Tradisional</h3>
+                <img class="menu-img-wrapper" src="menu/prasmanan-tradisional.jpg" alt="Prasmanan Tradisional">
+                <p class="menu-detail">Rendang, Ayam Lengkuas, Sop Kimlo, Kerupuk, Buah Iris, Es Dawet.</p>
+                <span class="menu-price">Rp 75.000 /pax</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="prasmanan">
+            <div class="menu-info">
+                <h3>Prasmanan Modern</h3>
+                <img class="menu-img-wrapper" src="menu/prasmanan-modern.jpg" alt="Prasmanan Modern">
+                <p class="menu-detail">Sapi Lada Hitam, Ayam Mentega, Capcay, Salad Buah, Pudding.</p>
+                <span class="menu-price">Rp 95.000 /pax</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="kotak">
+            <div class="menu-info">
+                <h3>Nasi Ayam Taliwang</h3>
+                <img class="menu-img-wrapper" src="menu/nasi-ayam-taliwang.jpg" alt="Nasi Ayam Taliwang">
+                <p class="menu-detail">Nasi Putih, Ayam Bakar Taliwang, Plecing Kangkung, Sambal Beberuk.</p>
+                <span class="menu-price">Rp 30.000</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="kotak">
+            <div class="menu-info">
+                <h3>Nasi Empal Gentong</h3>
+                <img class="menu-img-wrapper" src="menu/nasi-empal-gentong.jpg" alt="Nasi Empal Gentong<">
+                <p class="menu-detail">Nasi Putih, Empal Gentong Khas Cirebon, Tahu Goreng, Sambal Ijo.</p>
+                <span class="menu-price">Rp 40.000</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="snack">
+            <div class="menu-info">
+                <h3>Snack Box Manis</h3>
+                <img class="menu-img-wrapper" src="menu/snack-box-manis.jpg" alt="Snack Box Manis">
+                <p class="menu-detail">Kue Lumpur, Risol Mayo, Lemper Ayam. (Termasuk Air Mineral)</p>
+                <span class="menu-price">Rp 15.000</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+
+        <div class="menu-card" data-category="snack">
+            <div class="menu-info">
+                <h3>Snack Box Premium</h3>
+                <img class="menu-img-wrapper" src="menu/snack-box-premium.jpg" alt="Snack Box Premium">
+                <p class="menu-detail">Pastel Spesial, Dadar Gulung, Brownies Panggang, Kacang Bawang.</p>
+                <span class="menu-price">Rp 20.000</span>
+                <a href="#" class="btn-order">Pesan via WA</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterMenu(category) {
+        const cards = document.querySelectorAll('.menu-card');
+        const buttons = document.querySelectorAll('.tab-btn');
+
+        // Update Active Button
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'Semua')) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Filter Cards
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

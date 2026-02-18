@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami | Nila Catering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #8B4513;
+            --accent: #D4AF37;
+            --dark: #2D2D2D;
+            --bg-light: #FDFBF9;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: var(--dark); margin: 0; }
+        
+        /* Navbar */
+        nav { background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary); text-decoration: none; font-size: 1.5rem; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; margin-left: 20px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+        header { text-align: center; margin-bottom: 50px; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); margin-bottom: 10px; }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* Info Kontak */
+        .contact-info h2 { color: var(--primary); margin-bottom: 25px; }
+        .info-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
+        .info-item i { background: var(--primary); color: white; padding: 12px; border-radius: 10px; margin-right: 20px; font-size: 1.2rem; }
+        .info-item h4 { margin: 0; color: var(--primary); font-size: 1.1rem; }
+        .info-item p { margin: 5px 0 0; color: #666; font-size: 0.95rem; }
+
+        /* Form Kontak */
+        .contact-form form { display: flex; flex-direction: column; gap: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); }
+        
+        .btn-send {
+            background: var(--primary); color: white; padding: 15px; border: none; border-radius: 8px;
+            font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem;
+        }
+        .btn-send:hover { background: #6b340e; transform: translateY(-2px); }
+
+        /* Map Placeholder */
+        .map-container { margin-top: 40px; border-radius: 15px; overflow: hidden; height: 300px; background: #eee; display: flex; align-items: center; justify-content: center; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .contact-wrapper { padding: 20px; }
+        }
+
+
+
+
+
+
+
+
+
+/* FAQ Styling yang diperbaiki */
+.faq-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #eee;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primary);
+    transition: background 0.3s;
+}
+
+.faq-question:hover { 
+    background: #fdf5f0; 
+}
+
+/* Bagian ini yang krusial untuk animasi */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0, 1, 0, 1); /* Efek meluncur yang halus */
+    background: #fff;
+    color: #666;
+    padding: 0 20px; /* Padding samping tetap ada */
+}
+
+/* Saat aktif, biarkan konten membesar sesuai isinya */
+.faq-item.active .faq-answer {
+    max-height: 500px; /* Angka besar agar muat semua teks */
+    transition: all 0.4s ease-in-out;
+    padding-bottom: 20px; /* Munculkan padding bawah saat terbuka */
+}
+
+/* Rotasi icon panah */
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <nav style="background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+        <a href="index.html" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); text-decoration: none; font-size: 1.5rem;">Nila Catering</a>
+        <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Beranda</a>
+            <a href="menu.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Daftar Menu</a>
+            <a href="contact.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Kontak</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Hubungi Kami</h1>
+        <p>Ada pertanyaan atau ingin konsultasi menu acara? Kami siap membantu.</p>
+    </header>
+
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h2>Informasi Kontak</h2>
+            
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Alamat Dapur</h4>
+                    <p>Jl. Rempah Wangi No. 12, Kebayoran Baru, Jakarta Selatan, 12110</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h4>Telepon / WhatsApp</h4>
+                    <p>0812-3456-7890 (Admin Nasi Box)<br>0812-9876-5432 (Admin Prasmanan)</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>halo@nilacatering.com</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h4>Jam Operasional</h4>
+                    <p>Senin - Minggu: 08:00 - 20:00 WIB<br><small>*Pemesanan via web 24 jam</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2>Kirim Pesan</h2>
+            <form>
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" placeholder="Masukkan nama Anda">
+                </div>
+                <div class="form-group">
+                    <label>Subjek Acara</label>
+                    <select style="width: 104%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        <option>Konsultasi Menu Pernikahan</option>
+                        <option>Pemesanan Nasi Box Kantor</option>
+                        <option>Acara Keluarga / Syukuran</option>
+                        <option>Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pesan</label>
+                    <textarea rows="5" placeholder="Tuliskan detail pesanan atau pertanyaan Anda..."></textarea>
+                </div>
+                <button type="button" class="btn-send">Kirim Pesan Sekarang</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <p style="color: #999;"><i class="fas fa-map-marked-alt"></i> [ Area Google Maps Nila Catering ]</p>
+    </div>
+</div>
+
+
+
+
+
+<section style="margin-top: 60px;">
+        <h2 style="text-align: center; color: var(--primary); margin-bottom: 30px;">Pertanyaan Umum (FAQ)</h2>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Berapa minimal pemesanan untuk Nasi Box?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Minimal pemesanan untuk Nasi Box adalah 15 porsi. Untuk pesanan di bawah itu, silakan konsultasikan dengan admin kami terlebih dahulu.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Kapan paling lambat saya harus memesan?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Untuk Nasi Box dan Snack, pemesanan maksimal H-2. Sedangkan untuk Prasmanan dan Tumpeng Besar, kami menyarankan pemesanan minimal H-7 acara.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Apakah bisa request menu di luar katalog?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tentu saja! Kami sangat fleksibel dengan menu pilihan Anda. Anda bisa mengonsultasikan anggaran dan jenis masakan yang diinginkan kepada tim Chef kami.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Bagaimana sistem pembayarannya?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Pembayaran dilakukan dengan DP (Down Payment) sebesar 50% sebagai tanda jadi. Pelunasan dilakukan maksimal H-1 sebelum pengiriman atau sesuai kesepakatan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer style="background: var(--dark); color: white; padding: 40px 20px; text-align: center;">
+    <p>&copy; 2026 Nila Catering. All Rights Reserved.</p>
+</footer>
+
+
+
+
+<script>
+    function toggleFAQ(element) {
+        // Mencari elemen .faq-item terdekat dari yang diklik
+        const item = element.closest('.faq-item');
+        
+        // Opsional: Menutup FAQ lain yang sedang terbuka (efek akordion murni)
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove('active');
+            }
+        });
+
+        // Toggle class active pada item yang diklik
+        item.classList.toggle('active');
+    }
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
