@@ -179,6 +179,90 @@
 
 
 
+
+
+/* Container slider */
+.testimonial-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Track yang bergerak */
+.testimonial-track {
+    display: flex;
+    width: calc(300px * 10); /* Sesuaikan dengan jumlah kartu x lebar kartu */
+    animation: scroll 30s linear infinite;
+}
+
+/* Kartu testimoni individual */
+.testi-card {
+    width: 300px;
+    flex-shrink: 0;
+    background: white;
+    margin: 0 15px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--accent);
+}
+
+.testi-card p {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.testi-card h4 {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Animasi Running Text */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 5)); } /* Geser sejauh jumlah kartu unik */
+}
+
+/* Berhenti saat di-hover agar mudah dibaca */
+.testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+
+
+
+
+@media (max-width: 300px) {
+    /* 1. Sembunyikan teks "Nila Catering" di mobile */
+    .brand-text {
+        display: none;
+    }
+
+    /* 2. Pastikan logo tetap terlihat manis */
+    .nav-logo-img {
+        height: 40px !important; /* Perkecil sedikit logo di mobile */
+        margin-right: 0 !important;
+    }
+
+    /* 3. Atur jarak menu navigasi agar rapi di kanan */
+    nav div[style*="display: flex; gap: 20px"] {
+        gap: 15px !important;
+    }
+
+    .nav-link-item {
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -187,9 +271,9 @@
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         
         <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px; transition: transform 0.3s ease;">
-            <span style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
-        </a>
+    <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px; transition: transform 0.3s ease;">
+    <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
+</a>
 
         <div style="display: flex; gap: 20px;">
             <a href="index.html" class="nav-link-item">Beranda</a>
@@ -310,22 +394,68 @@
 
 
 
-
-
-
-    <section class="section-padding" style="background-color: var(--light-color);">
-        <h2>Apa Kata Mereka?</h2>
-        <div class="pricing-container">
-            <div class="price-card" style="background: white;">
-                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap. Pas buat acara lamaran kemarin."</p>
-                <h4 style="margin-top: 15px; color: var(--primary-color);">- Ibu Sari, Jakarta</h4>
+<section class="section-padding" style="background-color: var(--light-color); overflow: hidden;">
+    <h2 style="text-align: center; margin-bottom: 40px;">Apa Kata Mereka?</h2>
+    
+    <div class="testimonial-slider">
+        <div class="testimonial-track">
+            <div class="testi-card">
+                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap."</p>
+                <h4>- Ibu Sari, Jakarta</h4>
             </div>
-            <div class="price-card" style="background: white;">
-                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka, porsinya juga pas!"</p>
-                <h4 style="margin-top: 15px; color: var(--primary-color);">- Bpk. Andi, HRD Tech Corp</h4>
+            <div class="testi-card">
+                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka!"</p>
+                <h4>- Bpk. Andi, HRD Tech Corp</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Tumpengnya estetik sekali, sayang buat dipotong. Rasanya pun enak!"</p>
+                <h4>- Maya, Wedding Organizer</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Snack box-nya variatif, kuenya masih fresh semua saat sampai."</p>
+                <h4>- Dr. Siti, Rumah Sakit Umum</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Adminnya sangat responsif diajak diskusi budget. Rekomendasi banget!"</p>
+                <h4>- Rio, Karang Taruna</h4>
+            </div>
+
+            <div class="testi-card">
+                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap."</p>
+                <h4>- Ibu Sari, Jakarta</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka!"</p>
+                <h4>- Bpk. Andi, HRD Tech Corp</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Tumpengnya estetik sekali, sayang buat dipotong. Rasanya pun enak!"</p>
+                <h4>- Maya, Wedding Organizer</h4>
+            </div>
+            <div class="testi-card">
+                <p>"Snack box-nya variatif, kuenya masih fresh semua saat sampai."</p>
+                <h4>- Dr. Siti, Rumah Sakit Umum</h4>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <section class="section-padding">
         <h2>Konsultasi Menu & Pemesanan</h2>
