@@ -115,18 +115,43 @@
 }
 
 
+/* Efek Hover pada Logo */
+.nav-logo-img:hover {
+    transform: scale(1.1); /* Logo membesar 10% */
+}
+
+/* Tambahan: Efek Hover pada Teks Menu agar seragam */
+.nav-link-item {
+    text-decoration: none; 
+    color: var(--dark-color); 
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link-item:hover {
+    color: var(--primary-color); /* Berubah warna saat disentuh */
+}
+
+
+
+
 
     </style>
 </head>
 <body>
 
-<nav style="background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+    <nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <a href="index.html" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); text-decoration: none; font-size: 1.5rem;">Nila Catering</a>
+        
+        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px; transition: transform 0.3s ease;">
+            <span style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
+        </a>
+
         <div style="display: flex; gap: 20px;">
-            <a href="index.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Beranda</a>
-            <a href="menu.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Daftar Menu</a>
-            <a href="contact.html" style="text-decoration: none; color: var(--dark-color); font-weight: 600;">Kontak</a>
+            <a href="index.html" class="nav-link-item">Beranda</a>
+            <a href="menu.html" class="nav-link-item">Daftar Menu</a>
+            <a href="contact.html" class="nav-link-item">Kontak</a>
         </div>
     </div>
 </nav>
