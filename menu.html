@@ -71,6 +71,7 @@
         }
 
         .menu-card {
+            position: relative;
             background: white;
             border-radius: 15px;
             overflow: hidden;
@@ -80,7 +81,62 @@
             display: flex;
             flex-direction: column;
         }
+
+        .ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 8px 0;
+    background-color: #ff9800; /* Warna Orange Gold */
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 13px 'Arial', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+    right: -50px;
+    top: 30px;
+    transform: rotate(45deg);
+}
+
+
+.menu-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    font-size: 0.85rem;
+    color: #666;
+    flex-grow: 1;
+}
+
+.menu-detail-list li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 3px;
+}
+
+.menu-detail-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+
+
         .menu-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
+
         
         .menu-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .menu-info h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
@@ -90,7 +146,7 @@
         /* Gambar di dalam card */
         .menu-img-wrapper {
             width: 100%;
-            height: 200px;
+            height: auto;
             margin-bottom: 15px;
             overflow: hidden;
             border-radius: 12px;
@@ -118,42 +174,20 @@
         }
         .btn-order:hover { opacity: 0.9; }
 
-
-
         /* --- RESPONSIVE MOBILE FIX --- */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .price-card.featured { transform: scale(1); }
-
-            /* Sembunyikan teks brand di mobile agar navigasi cukup */
+            header h1 { font-size: 2.5rem; }
             .brand-text { display: none !important; }
-
-            /* Logo dikecilkan sedikit */
             .nav-logo-img { height: 40px !important; margin-right: 0 !important; }
-
-            /* Menu navigasi satu baris */
             nav div[style*="display: flex; gap: 20px"] {
                 gap: 12px !important;
                 flex-wrap: nowrap !important;
             }
-
             .nav-link-item {
                 font-size: 0.8rem !important;
                 white-space: nowrap !important;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         /* --- WhatsApp Floating Button --- */
         .whatsapp-float {
@@ -173,14 +207,9 @@
             justify-content: center;
             z-index: 1000;
             text-decoration: none;
+            transition: transform 0.3s;
         }
-
-
-
-
-
-
-
+        .whatsapp-float:hover { transform: scale(1.1); }
     </style>
 </head>
 <body>
@@ -209,120 +238,95 @@
     <div class="tabs">
         <button class="tab-btn active" onclick="filterMenu('all')">Semua</button>
         <button class="tab-btn" onclick="filterMenu('tumpeng')">Nasi Tumpeng</button>
+        <button class="tab-btn" onclick="filterMenu('paket')">Paket</button>
         <button class="tab-btn" onclick="filterMenu('prasmanan')">Prasmanan</button>
         <button class="tab-btn" onclick="filterMenu('kotak')">Nasi Kotak</button>
         <button class="tab-btn" onclick="filterMenu('snack')">Snack Box</button>
     </div>
 
     <div class="menu-grid" id="menu-container">
-        <div class="menu-card" data-category="tumpeng">
-            <div class="menu-info">
-                <h3>Tumpeng Kuning Agung</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/tumpeng-kuning-agung.jpg" alt="Tumpeng Kuning Agung">
-                </div>
-                <p class="menu-detail">Nasi Kuning, Ayam Goreng, Perkedel, Sambal Goreng Ati, Telur Rawis, Urap Sayur.</p>
-                <span class="menu-price">Rp 500.000 <small>(10 Porsi)</small></span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="tumpeng">
-            <div class="menu-info">
-                <h3>Tumpeng Mini (Personal)</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/tumpeng-mini.jpg" alt="Tumpeng Mini">
-                </div>
-                <p class="menu-detail">Ayam Bakar, Serundeng, Oreg Tempe, Perkedel, Sambal.</p>
-                <span class="menu-price">Rp 35.000 /pax</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="prasmanan">
-            <div class="menu-info">
-                <h3>Prasmanan Tradisional</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/prasmanan-tradisional.jpg" alt="Prasmanan Tradisional">
-                </div>
-                <p class="menu-detail">Rendang, Ayam Lengkuas, Sop Kimlo, Kerupuk, Buah Iris, Es Dawet.</p>
-                <span class="menu-price">Rp 75.000 /pax</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="prasmanan">
-            <div class="menu-info">
-                <h3>Prasmanan Modern</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/prasmanan-modern.jpg" alt="Prasmanan Modern">
-                </div>
-                <p class="menu-detail">Sapi Lada Hitam, Ayam Mentega, Capcay, Salad Buah, Pudding.</p>
-                <span class="menu-price">Rp 95.000 /pax</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="kotak">
-            <div class="menu-info">
-                <h3>Nasi Ayam Taliwang</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/nasi-ayam-taliwang.jpg" alt="Nasi Ayam Taliwang">
-                </div>
-                <p class="menu-detail">Nasi Putih, Ayam Bakar Taliwang, Plecing Kangkung, Sambal Beberuk.</p>
-                <span class="menu-price">Rp 30.000</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="kotak">
-            <div class="menu-info">
-                <h3>Nasi Empal Gentong</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/nasi-empal-gentong.jpg" alt="Nasi Empal Gentong">
-                </div>
-                <p class="menu-detail">Nasi Putih, Empal Gentong Khas Cirebon, Tahu Goreng, Sambal Ijo.</p>
-                <span class="menu-price">Rp 40.000</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="snack">
-            <div class="menu-info">
-                <h3>Snack Box Manis</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/snack-box-manis.jpg" alt="Snack Box Manis">
-                </div>
-                <p class="menu-detail">Kue Lumpur, Risol Mayo, Lemper Ayam. (Termasuk Air Mineral)</p>
-                <span class="menu-price">Rp 15.000</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
-
-        <div class="menu-card" data-category="snack">
-            <div class="menu-info">
-                <h3>Snack Box Premium</h3>
-                <div class="menu-img-wrapper">
-                    <img src="menu/snack-box-premium.jpg" alt="Snack Box Premium">
-                </div>
-                <p class="menu-detail">Pastel Spesial, Dadar Gulung, Brownies Panggang, Kacang Bawang.</p>
-                <span class="menu-price">Rp 20.000</span>
-                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
-            </div>
-        </div>
+        <p id="loading-text" style="text-align: center; grid-column: 1/-1;">Memuat menu...</p>
     </div>
 </div>
 
 <script>
+    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrZ3tU58xi_h2nGOLj794bP5sIprTC9sXRfRgsccJ5o1VPEjgi8OBcwN5Xx0qonoQ63f8nq1jn26o/pub?gid=0&single=true&output=csv";
+
+    async function fetchMenu() {
+        const container = document.getElementById('menu-container');
+        try {
+            const response = await fetch(sheetURL);
+            if (!response.ok) throw new Error('Gagal mengambil data');
+            
+            const data = await response.text();
+            const rows = data.split(/\r?\n/).filter(row => row.trim() !== "").slice(1); 
+
+            let menuList = rows.map(row => {
+                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if (cols.length >= 5) {
+                    const rawPrice = cols[4].replace(/["']/g, "").trim();
+                    const numericPrice = parseInt(rawPrice.replace(/[^0-9]/g, "")) || 0;
+                    const bestSeller = cols[5] ? cols[5].replace(/["']/g, "").trim().toLowerCase() : "";
+
+                    return {
+                        category: cols[0].replace(/["']/g, "").trim().toLowerCase(),
+                        title: cols[1].replace(/["']/g, "").trim(),
+                        image: cols[2].replace(/["']/g, "").trim(),
+                        detail: cols[3].replace(/["']/g, "").trim(),
+                        priceText: rawPrice,
+                        priceValue: numericPrice,
+                        isBestSeller: bestSeller === "yes"
+                    };
+                }
+                return null;
+            }).filter(item => item !== null);
+
+            // Sortir Harga Tertinggi ke Terendah
+            menuList.sort((a, b) => b.priceValue - a.priceValue);
+
+            let htmlContent = '';
+            
+            menuList.forEach(item => {
+                // Perbaikan: ribbonHTML dipindahkan ke DALAM forEach
+                let ribbonHTML = item.isBestSeller ? `<div class="ribbon"><span>Best Seller</span></div>` : "";
+                
+                const detailArray = item.detail.split(',').map(d => d.trim());
+                const detailListHTML = detailArray.map(d => `<li>${d}</li>`).join('');
+
+                htmlContent += `
+                    <div class="menu-card" data-category="${item.category}">
+                        ${ribbonHTML}
+                        <div class="menu-info">
+                            <h3>${item.title}</h3>
+                            <div class="menu-img-wrapper">
+                                <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Ditemukan'">
+                            </div>
+                            
+                            <ul class="menu-detail-list">
+                                ${detailListHTML}
+                            </ul>
+
+                            <span class="menu-price">${item.priceText}</span>
+                            <a href="https://wa.me/62812345678?text=Halo Nila Catering, saya mau pesan ${item.title}" class="btn-order">Pesan via WA</a>
+                        </div>
+                    </div>`;
+            });
+
+            container.innerHTML = htmlContent;
+
+        } catch (error) {
+            container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Error: ${error.message}</p>`;
+            console.error('Detail Error:', error);
+        }
+    }
+
     function filterMenu(category) {
         const cards = document.querySelectorAll('.menu-card');
         const buttons = document.querySelectorAll('.tab-btn');
 
-        // Update Active Button State
         buttons.forEach(btn => {
             btn.classList.remove('active');
             const btnText = btn.innerText.toLowerCase();
-            
             if (category === 'all' && btnText === 'semua') {
                 btn.classList.add('active');
             } else if (btnText.includes(category)) {
@@ -330,16 +334,13 @@
             }
         });
 
-        // Filter Cards Logic
         cards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
-            if (category === 'all' || cardCategory === category) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (category === 'all' || cardCategory === category) ? 'flex' : 'none';
         });
     }
+
+    window.onload = fetchMenu;
 </script>
 
 <a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
