@@ -122,6 +122,38 @@
             .nav-link-item { font-size: 0.85rem; }
             .contact-wrapper { padding: 25px; }
         }
+
+
+
+        /* --- WhatsApp Floating Button --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+
+
+
+        
     </style>
 </head>
 <body>
@@ -277,6 +309,10 @@
         item.classList.toggle('active');
     }
 </script>
+
+<a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
