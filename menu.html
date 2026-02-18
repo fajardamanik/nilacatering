@@ -7,29 +7,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
-
-
     <meta property="og:title" content="Nila Catering">
     <meta property="og:description" content="Menu Lengkap">
     <meta property="og:image" content="https://fajardamanik.github.io/nilacatering/logo.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fajardamanik.github.io/nilacatering/">
 
-
-    
     <style>
         :root {
-            --primary: #8B4513;
+            --primary-color: #8B4513;
             --accent: #D4AF37;
             --bg-light: #FDFBF9;
+            --dark-color: #2D2D2D;
         }
 
-        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: #333; margin: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: #333; line-height: 1.6; }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
         header { text-align: center; margin-bottom: 50px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary); }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
+
+        /* Nav Logo & Link */
+        .nav-logo-img { transition: transform 0.3s ease; }
+        .nav-logo-img:hover { transform: scale(1.1); }
+        .nav-link-item {
+            text-decoration: none; 
+            color: var(--dark-color); 
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-link-item:hover { color: var(--primary-color); }
 
         /* Tabs Styling */
         .tabs {
@@ -40,17 +49,17 @@
             margin-bottom: 40px;
         }
         .tab-btn {
-            padding: 12px 25px;
-            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
             background: transparent;
-            color: var(--primary);
+            color: var(--primary-color);
             font-weight: 600;
             cursor: pointer;
             border-radius: 30px;
             transition: 0.3s;
         }
         .tab-btn.active, .tab-btn:hover {
-            background: var(--primary);
+            background: var(--primary-color);
             color: white;
         }
 
@@ -68,84 +77,78 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
             border-bottom: 4px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
         .menu-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
         
-        .menu-info { padding: 25px; }
-        .menu-info h3 { margin-bottom: 10px; color: var(--primary); font-size: 1.3rem; }
-        .menu-detail { font-size: 0.85rem; color: #666; margin-bottom: 15px; min-height: 40px; }
+        .menu-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .menu-info h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
+        .menu-detail { font-size: 0.85rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
         .menu-price { font-weight: 700; color: #27ae60; font-size: 1.2rem; display: block; margin-bottom: 15px; }
 
-        .btn-order {
-            display: inline-block;
+        /* Gambar di dalam card */
+        .menu-img-wrapper {
             width: 100%;
-            padding: 10px;
-            text-align: center;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
+            height: 200px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 2px solid #eee;
+        }
+        .menu-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        /* Category Filter Logic (Simple CSS-only) */
-        .menu-card { display: block; }
-        
-        /* Helper Classes */
-        .text-center { text-align: center; }
-        .hidden { display: none; }
+        .btn-order {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        .btn-order:hover { opacity: 0.9; }
 
+        /* --- RESPONSIVE MOBILE FIX --- */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            
+            /* Sembunyikan teks brand di mobile */
+            .brand-text { display: none !important; }
 
+            /* Navigasi tetap satu baris */
+            nav div[style*="display: flex; gap: 20px"] {
+                gap: 12px !important;
+                flex-wrap: nowrap !important;
+            }
 
-                /* Styling untuk gambar kecil di dalam card */
-.menu-img-wrapper {
-    width: 100%;       /* Ukuran lebar gambar kecil */
-    height: auto;      /* Ukuran tinggi gambar kecil */
-    margin: 15px auto;  /* Jarak antar teks dan posisi tengah */
-    overflow: hidden;
-    border-radius: 12px; /* Membuat sudut gambar tumpul/estetik */
-    border: 2px solid #eee;
-}
+            .nav-link-item {
+                font-size: 0.8rem !important;
+                white-space: nowrap !important;
+            }
 
-.menu-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Memastikan gambar tetap proporsional (tidak gepeng) */
-    display: block;
-}
-
-
-/* Efek Hover pada Logo */
-.nav-logo-img:hover {
-    transform: scale(1.1); /* Logo membesar 10% */
-}
-
-/* Tambahan: Efek Hover pada Teks Menu agar seragam */
-.nav-link-item {
-    text-decoration: none; 
-    color: var(--dark-color); 
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-link-item:hover {
-    color: var(--primary-color); /* Berubah warna saat disentuh */
-}
-
-
-
-
-
+            .nav-logo-img { height: 40px !important; }
+            
+            .tab-btn { padding: 8px 15px; font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
 
-    <nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
+<nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        
         <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px; transition: transform 0.3s ease;">
-            <span style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
+            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px;">
+            <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
         </a>
 
         <div style="display: flex; gap: 20px;">
@@ -174,80 +177,96 @@
         <div class="menu-card" data-category="tumpeng">
             <div class="menu-info">
                 <h3>Tumpeng Kuning Agung</h3>
-                <img class="menu-img-wrapper" src="menu/tumpeng-kuning-agung.jpg" alt="Tumpeng Kuning Agung">
+                <div class="menu-img-wrapper">
+                    <img src="menu/tumpeng-kuning-agung.jpg" alt="Tumpeng Kuning Agung">
+                </div>
                 <p class="menu-detail">Nasi Kuning, Ayam Goreng, Perkedel, Sambal Goreng Ati, Telur Rawis, Urap Sayur.</p>
                 <span class="menu-price">Rp 500.000 <small>(10 Porsi)</small></span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="tumpeng">
             <div class="menu-info">
                 <h3>Tumpeng Mini (Personal)</h3>
-                <img class="menu-img-wrapper" src="menu/tumpeng-mini.jpg" alt="Tumpeng Mini">
+                <div class="menu-img-wrapper">
+                    <img src="menu/tumpeng-mini.jpg" alt="Tumpeng Mini">
+                </div>
                 <p class="menu-detail">Ayam Bakar, Serundeng, Oreg Tempe, Perkedel, Sambal.</p>
                 <span class="menu-price">Rp 35.000 /pax</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="prasmanan">
             <div class="menu-info">
                 <h3>Prasmanan Tradisional</h3>
-                <img class="menu-img-wrapper" src="menu/prasmanan-tradisional.jpg" alt="Prasmanan Tradisional">
+                <div class="menu-img-wrapper">
+                    <img src="menu/prasmanan-tradisional.jpg" alt="Prasmanan Tradisional">
+                </div>
                 <p class="menu-detail">Rendang, Ayam Lengkuas, Sop Kimlo, Kerupuk, Buah Iris, Es Dawet.</p>
                 <span class="menu-price">Rp 75.000 /pax</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="prasmanan">
             <div class="menu-info">
                 <h3>Prasmanan Modern</h3>
-                <img class="menu-img-wrapper" src="menu/prasmanan-modern.jpg" alt="Prasmanan Modern">
+                <div class="menu-img-wrapper">
+                    <img src="menu/prasmanan-modern.jpg" alt="Prasmanan Modern">
+                </div>
                 <p class="menu-detail">Sapi Lada Hitam, Ayam Mentega, Capcay, Salad Buah, Pudding.</p>
                 <span class="menu-price">Rp 95.000 /pax</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="kotak">
             <div class="menu-info">
                 <h3>Nasi Ayam Taliwang</h3>
-                <img class="menu-img-wrapper" src="menu/nasi-ayam-taliwang.jpg" alt="Nasi Ayam Taliwang">
+                <div class="menu-img-wrapper">
+                    <img src="menu/nasi-ayam-taliwang.jpg" alt="Nasi Ayam Taliwang">
+                </div>
                 <p class="menu-detail">Nasi Putih, Ayam Bakar Taliwang, Plecing Kangkung, Sambal Beberuk.</p>
                 <span class="menu-price">Rp 30.000</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="kotak">
             <div class="menu-info">
                 <h3>Nasi Empal Gentong</h3>
-                <img class="menu-img-wrapper" src="menu/nasi-empal-gentong.jpg" alt="Nasi Empal Gentong<">
+                <div class="menu-img-wrapper">
+                    <img src="menu/nasi-empal-gentong.jpg" alt="Nasi Empal Gentong">
+                </div>
                 <p class="menu-detail">Nasi Putih, Empal Gentong Khas Cirebon, Tahu Goreng, Sambal Ijo.</p>
                 <span class="menu-price">Rp 40.000</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="snack">
             <div class="menu-info">
                 <h3>Snack Box Manis</h3>
-                <img class="menu-img-wrapper" src="menu/snack-box-manis.jpg" alt="Snack Box Manis">
+                <div class="menu-img-wrapper">
+                    <img src="menu/snack-box-manis.jpg" alt="Snack Box Manis">
+                </div>
                 <p class="menu-detail">Kue Lumpur, Risol Mayo, Lemper Ayam. (Termasuk Air Mineral)</p>
                 <span class="menu-price">Rp 15.000</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
 
         <div class="menu-card" data-category="snack">
             <div class="menu-info">
                 <h3>Snack Box Premium</h3>
-                <img class="menu-img-wrapper" src="menu/snack-box-premium.jpg" alt="Snack Box Premium">
+                <div class="menu-img-wrapper">
+                    <img src="menu/snack-box-premium.jpg" alt="Snack Box Premium">
+                </div>
                 <p class="menu-detail">Pastel Spesial, Dadar Gulung, Brownies Panggang, Kacang Bawang.</p>
                 <span class="menu-price">Rp 20.000</span>
-                <a href="#" class="btn-order">Pesan via WA</a>
+                <a href="https://wa.me/62812345678" class="btn-order">Pesan via WA</a>
             </div>
         </div>
     </div>
@@ -258,18 +277,23 @@
         const cards = document.querySelectorAll('.menu-card');
         const buttons = document.querySelectorAll('.tab-btn');
 
-        // Update Active Button
+        // Update Active Button State
         buttons.forEach(btn => {
             btn.classList.remove('active');
-            if(btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'Semua')) {
+            const btnText = btn.innerText.toLowerCase();
+            
+            if (category === 'all' && btnText === 'semua') {
+                btn.classList.add('active');
+            } else if (btnText.includes(category)) {
                 btn.classList.add('active');
             }
         });
 
-        // Filter Cards
+        // Filter Cards Logic
         cards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-                card.style.display = 'block';
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'all' || cardCategory === category) {
+                card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
             }
