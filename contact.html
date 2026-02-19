@@ -216,7 +216,7 @@
                 <i class="fas fa-phone-alt"></i>
                 <div>
                     <h4>Telepon / WhatsApp</h4>
-                    <p>0812-3456-7890 (Admin Nasi Box)<br>0812-9876-5432 (Admin Prasmanan)</p>
+                    <p>0811-832-527</p>
                 </div>
             </div>
 
@@ -232,7 +232,7 @@
                 <i class="fas fa-clock"></i>
                 <div>
                     <h4>Jam Operasional</h4>
-                    <p>Senin - Minggu: 08:00 - 20:00 WIB<br><small>*Pemesanan via web 24 jam</small></p>
+                    <p>Senin - Minggu: 08:00 - 20:00 WIB</p>
                 </div>
             </div>
         </div>
@@ -313,6 +313,14 @@
     </section>
 </div>
 
+
+
+<script src="config.js"></script>
+
+<a href="#" id="wa-floating" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <footer style="background: var(--dark-color); color: white; padding: 40px 20px; text-align: center;">
     <p>&copy; 2026 Nila Catering. All Rights Reserved.</p>
 </footer>
@@ -329,11 +337,22 @@
 
         item.classList.toggle('active');
     }
+
+
+
+    // Fungsi untuk update tombol melayang
+function updateFloatingButton() {
+    const floatBtn = document.getElementById('wa-floating');
+    if (floatBtn) {
+        const url = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(CONFIG_KONTAK.pesanUmum)}`;
+        floatBtn.href = url;
+    }
+}
+
+// Panggil fungsi ini agar tombol melayang langsung terisi link-nya
+updateFloatingButton();
 </script>
 
-<a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
 
 </body>
 </html>

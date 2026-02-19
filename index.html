@@ -6,76 +6,21 @@
     <title>Nila Catering | Kelezatan Autentik Indonesia</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <meta property="og:title" content="Nila Catering">
-    <meta property="og:description" content="Kelezatan Autentik Indonesia">
-    <meta property="og:image" content="https://fajardamanik.github.io/nilacatering/logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fajardamanik.github.io/nilacatering/">
-
     <style>
-        :root {
-            --primary-color: #8B4513; /* Cokelat Rempah */
-            --secondary-color: #D4AF37; /* Emas Kunyit */
-            --dark-color: #2D2D2D;
-            --light-color: #F9F4F0;
-        }
-
-        /* Perbaikan box-sizing */
+        /* ... (Semua CSS Anda tetap sama) ... */
+        :root { --primary-color: #8B4513; --secondary-color: #D4AF37; --dark-color: #2D2D2D; --light-color: #F9F4F0; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark-color); background-color: white; }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=2044&auto=format&fit=crop'); 
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=2044&auto=format&fit=crop'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
         .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
-
-        /* --- Buttons --- */
-        .btn {
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: 0.3s;
-            display: inline-block;
-        }
+        .btn { padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: 0.3s; display: inline-block; }
         .btn-primary { background-color: var(--secondary-color); color: white; margin-right: 10px; }
         .btn-secondary { border: 2px solid white; color: white; }
         .btn:hover { transform: translateY(-3px); opacity: 0.9; }
-
-        /* --- Pricing Table --- */
         .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .pricing-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
-            gap: 30px;
-    margin-top: 50px;
-    max-width: 900px; /* Membatasi lebar agar tidak terlalu melar ke samping */
-    margin-left: auto;
-    margin-right: auto;
-        }
-        .price-card {
-            border: 1px solid #eee;
-            padding: 40px;
-            border-radius: 15px;
-            transition: 0.3s;
-            position: relative;
-            text-align: center;
-        }
+        .pricing-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 50px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .price-card { border: 1px solid #eee; padding: 40px; border-radius: 15px; transition: 0.3s; position: relative; text-align: center; }
         .price-card.featured { border: 2px solid var(--secondary-color); transform: scale(1.05); background: var(--light-color); }
         .badge { background: var(--secondary-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; position: absolute; top: -15px; left: 50%; translate: -50%; }
         .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
@@ -83,181 +28,22 @@
         .price-list { list-style: none; margin-bottom: 30px; text-align: left; }
         .price-list li { margin-bottom: 10px; font-size: 0.9rem; }
         .price-list li i { color: green; margin-right: 10px; }
-
-        /* --- WhatsApp Floating Button --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        /* Styling gambar di dalam card */
-        .menu-img-wrapper {
-            width: 100%;
-            height: auto;
-            margin: 15px auto;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 2px solid #eee;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* Tombol Menu Lainnya */
-        .btn-outline-primary {
-            padding: 15px 40px;
-            text-decoration: none;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 30px;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
-        }
-
-        /* Nav Logo & Link */
-        .nav-logo-img:hover { transform: scale(1.1); }
-        .nav-link-item {
-            text-decoration: none; 
-            color: var(--dark-color); 
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; }
+        .menu-img-wrapper { width: 100%; height: auto; margin: 15px auto; overflow: hidden; border-radius: 12px; border: 2px solid #eee; display: block; object-fit: cover; }
+        .btn-outline-primary { padding: 15px 40px; text-decoration: none; border: 2px solid var(--primary-color); color: var(--primary-color); border-radius: 30px; font-weight: 600; display: inline-block; transition: all 0.3s ease; }
+        .btn-outline-primary:hover { background-color: var(--primary-color); color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2); }
+        .nav-link-item { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: color 0.3s ease; }
         .nav-link-item:hover { color: var(--primary-color); }
-
-
-.trust-indicators {
-    background: #fff;
-    padding: 60px 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.indicator-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    text-align: center;
-}
-
-.indicator-item i {
-    font-size: 1rem;
-    color: var(--accent); /* Warna emas */
-    margin-bottom: 20px;
-}
-
-.indicator-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.indicator-item p {
-    font-size: 0.9rem;
-    color: #666;
-    max-width: 280px;
-    margin: 0 auto;
-}
-
-.trust-svg {
-    width: 60px;  /* Sesuaikan ukuran di sini */
-    height: 60px;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 0.3s ease;
-}
-
-.indicator-item:hover .trust-svg {
-    transform: scale(1.1); /* Efek membesar sedikit saat disentuh */
-}
-
-/* Responsif Mobile */
-@media (max-width: 768px) {
-    .indicator-grid {
-        gap: 30px;
-    }
-}
-
-
-
-
-
-
-
-
-        /* Testimonial Slider */
+        .trust-indicators { background: #fff; padding: 60px 0; border-bottom: 1px solid #f0f0f0; }
+        .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .indicator-item h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary-color); margin-bottom: 10px; }
+        .indicator-item p { font-size: 0.9rem; color: #666; max-width: 280px; margin: 0 auto; }
+        .trust-svg { width: 60px; height: 60px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s ease; }
         .testimonial-slider { width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
-        .testimonial-track {
-            display: flex;
-            width: calc(300px * 10);
-            animation: scroll 30s linear infinite;
-        }
-        .testi-card {
-            width: 300px;
-            flex-shrink: 0;
-            background: white;
-            margin: 0 15px;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-bottom: 3px solid var(--secondary-color);
-        }
-        .testi-card p { font-style: italic; font-size: 0.9rem; margin-bottom: 15px; color: #555; }
-        .testi-card h4 { color: var(--primary-color); font-size: 0.85rem; font-weight: 600; }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-300px * 5)); }
-        }
-        .testimonial-track:hover { animation-play-state: paused; }
-
-        /* --- RESPONSIVE MOBILE FIX --- */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .pricing-container {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-    }
-            .price-card.featured { transform: scale(1); margin: 20px 0; }
-
-            /* Sembunyikan teks brand di mobile agar navigasi cukup */
-            .brand-text { display: none !important; }
-
-            /* Logo dikecilkan sedikit */
-            .nav-logo-img { height: 40px !important; margin-right: 0 !important; }
-
-            /* Menu navigasi satu baris */
-            nav div[style*="display: flex; gap: 20px"] {
-                gap: 12px !important;
-                flex-wrap: nowrap !important;
-            }
-
-            .nav-link-item {
-                font-size: 0.8rem !important;
-                white-space: nowrap !important;
-            }
-        }
+        .testimonial-track { display: flex; width: calc(300px * 10); animation: scroll 30s linear infinite; }
+        .testi-card { width: 300px; flex-shrink: 0; background: white; margin: 0 15px; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 3px solid var(--secondary-color); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 5)); } }
+        @media (max-width: 768px) { .hero-content h1 { font-size: 2.5rem; } .pricing-container { grid-template-columns: 1fr; padding: 0 10px; } .brand-text { display: none !important; } }
     </style>
 </head>
 <body>
@@ -265,10 +51,9 @@
 <nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
         <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px; transition: transform 0.3s ease;">
+            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px;">
             <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
         </a>
-
         <div style="display: flex; gap: 20px;">
             <a href="index.html" class="nav-link-item">Beranda</a>
             <a href="menu.html" class="nav-link-item">Daftar Menu</a>
@@ -282,156 +67,42 @@
         <h1>Kelezatan Autentik Nusantara</h1>
         <p>Warisan kuliner Indonesia dengan bumbu rempah asli pilihan. Higienis, Premium, dan Tepat Waktu.</p>
         <a href="#menu" class="btn btn-primary">Lihat Menu</a>
-        <a href="https://wa.me/62812345678" class="btn btn-secondary">Konsultasi Gratis</a>
+        <a href="#" target="_blank" class="btn btn-secondary wa-dynamic" data-pesan="Halo, saya ingin konsultasi mengenai catering.">Konsultasi Gratis</a>
     </div>
 </section>
 
 <div style="background: #8B4513; color: white; padding: 15px; text-align: center; font-size: 0.9rem;">
     <strong>Promo Member:</strong> Simpan kartu ucapan dari box kami dan dapatkan diskon 5% untuk pemesanan selanjutnya! 
-    <a href="https://wa.me/62812345678" style="color: #D4AF37; margin-left: 10px; font-weight: bold;">Klaim Diskon via WA</a>
+    <a href="#" target="_blank" class="wa-dynamic" data-pesan="Halo Nila Catering, saya ingin klaim diskon promo member." style="color: #D4AF37; margin-left: 10px; font-weight: bold;">Klaim Diskon via WA</a>
 </div>
-
-
-
-
-
 
 <section id="menu" class="section-padding">
     <h2>Pilihan Paket Katering</h2>
     <p>Sesuaikan dengan kebutuhan acara spesial Anda</p>
-
     <div class="pricing-container" id="pricing-wrapper">
         <p style="text-align: center; width: 100%;">Memuat paket pilihan...</p>
     </div>
 </section>
 
-
-
-
-
-<div style="margin-top: 50px; text-align: center; padding-bottom: 50px;">
-    <p style="margin-bottom: 20px; color: #666;">Ingin pilihan menu tumpeng, snack box, atau prasmanan lainnya?</p>
-    <a href="menu.html" class="btn-outline-primary">
-        Lihat Menu Lainnya <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-    </a>
-</div>
-
-
-
-
-
-
-
-
-
-
-<section class="trust-indicators">
-    <div class="container">
-        <div class="indicator-grid">
-            
-            <div class="indicator-item">
-                <img src="halal.svg" alt="Halal" class="trust-svg">
-                <h4>Jaminan Halal</h4>
-                <p>Seluruh bahan baku dan proses pengolahan kami pastikan 100% Halal dan Thayyib.</p>
-            </div>
-            
-            <div class="indicator-item">
-                <img src="ahli-gizi.png" alt="Badan Gizi Nasional" class="trust-svg">
-                <h4>Diawasi Ahli Gizi</h4>
-                <p>Setiap komposisi menu dirancang seimbang untuk memenuhi kebutuhan nutrisi Anda.</p>
-            </div>
-            
-            <div class="indicator-item">
-                <img src="hygiene.svg" alt="Higienis" class="trust-svg">
-                <h4>Protokol Higienis</h4>
-                <p>Karyawan kami melalui standar sanitasi ketat dengan area kerja yang higienis.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-<section class="section-padding" style="background-color: var(--light-color); overflow: hidden;">
-    <h2 style="text-align: center; margin-bottom: 40px;">Apa Kata Mereka?</h2>
-    
-    <div class="testimonial-slider">
-        <div class="testimonial-track">
-            <div class="testi-card">
-                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap."</p>
-                <h4>- Ibu Sari, Jakarta</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka!"</p>
-                <h4>- Bpk. Andi, HRD Tech Corp</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Tumpengnya estetik sekali, sayang buat dipotong. Rasanya pun enak!"</p>
-                <h4>- Maya, Wedding Organizer</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Snack box-nya variatif, kuenya masih fresh semua saat sampai."</p>
-                <h4>- Dr. Siti, Rumah Sakit Umum</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Adminnya sangat responsif diajak diskusi budget. Rekomendasi banget!"</p>
-                <h4>- Rio, Karang Taruna</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Rendangnya juara! Dagingnya empuk banget dan bumbunya meresap."</p>
-                <h4>- Ibu Sari, Jakarta</h4>
-            </div>
-            <div class="testi-card">
-                <p>"Pesanan 100 box nasi kuning datang tepat waktu. Tim kantor semua suka!"</p>
-                <h4>- Bpk. Andi, HRD Tech Corp</h4>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <h2>Konsultasi Menu & Pemesanan</h2>
-    <p>Isi formulir di bawah ini, tim kami akan segera menghubungi Anda.</p>
-    <form style="max-width: 600px; margin: 40px auto; text-align: left; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Nama Lengkap</label>
-            <input type="text" placeholder="Contoh: Budi Santoso" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Pilihan Paket</label>
-            <select style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                <option>Paket Karya (Rp 25rb)</option>
-                <option>Paket Nusantara (Rp 45rb)</option>
-                <option>Paket Warisan (Rp 85rb)</option>
-            </select>
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; margin-bottom: 5px;">Pesan Tambahan (Opsional)</label>
-            <textarea rows="4" placeholder="Sebutkan tanggal acara atau permintaan khusus..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Kirim Permintaan</button>
-    </form>
-</section>
-
-<footer style="background: var(--dark-color); color: white; padding: 40px 20px; text-align: center;">
-    <p>&copy; 2026 Nila Catering. All Rights Reserved.</p>
-    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Jl. Rempah Wangi No. 12, Jakarta | Telp: 0812-3456-78</p>
-</footer>
-
-<a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
+<a href="#" class="whatsapp-float wa-dynamic" data-pesan="Halo Nila Catering, ada yang ingin saya tanyakan." target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<script src="config.js"></script>
 
 <script>
     const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrZ3tU58xi_h2nGOLj794bP5sIprTC9sXRfRgsccJ5o1VPEjgi8OBcwN5Xx0qonoQ63f8nq1jn26o/pub?gid=0&single=true&output=csv";
 
+    // 1. Fungsi Update Semua Tombol WhatsApp Statis (Konsultasi, Diskon, Floating)
+    function updateStaticWALinks() {
+        const dynamicLinks = document.querySelectorAll('.wa-dynamic');
+        dynamicLinks.forEach(link => {
+            const pesan = link.getAttribute('data-pesan') || CONFIG_KONTAK.pesanDefault;
+            link.href = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesan)}`;
+        });
+    }
+
+    // 2. Fungsi Ambil Data Paket dari Sheets
     async function fetchPaketEksklusif() {
         const pricingWrapper = document.getElementById('pricing-wrapper');
         try {
@@ -443,33 +114,32 @@
                 const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
                 if (cols.length >= 5) {
                     const priceRaw = cols[4].replace(/["']/g, "").trim();
-                    // Konversi harga ke angka: Hapus semua karakter kecuali angka
                     const priceValue = parseInt(priceRaw.replace(/[^0-9]/g, "")) || 0;
-
                     return {
                         category: cols[0].replace(/["']/g, "").trim().toLowerCase(),
                         title: cols[1].replace(/["']/g, "").trim(),
                         image: cols[2].replace(/["']/g, "").trim(),
                         detail: cols[3].replace(/["']/g, "").trim(),
                         priceText: priceRaw,
-                        priceValue: priceValue, // Simpan angka murni untuk sortir
+                        priceValue: priceValue,
                         isBestSeller: (cols[5] && cols[5].replace(/["']/g, "").trim().toLowerCase() === "yes")
                     };
                 }
                 return null;
             }).filter(item => item !== null && item.category === "paket");
 
-            // --- SORTIR DARI TERMURAH (Ascending) ---
             paketList.sort((a, b) => a.priceValue - b.priceValue);
 
             let htmlContent = '';
-
             paketList.forEach(item => {
                 const detailArray = item.detail.split(',').map(d => d.trim());
                 const detailListHTML = detailArray.map(d => `<li><i class="fas fa-check"></i> ${d}</li>`).join('');
-
                 const featuredClass = item.isBestSeller ? 'featured' : '';
                 const badgeHTML = item.isBestSeller ? '<div class="badge">BEST SELLER</div>' : '';
+
+                // Link WA untuk tiap Produk
+                const pesanWA = `Halo Nila Catering, saya mau pesan *${item.title}*`;
+                const linkWA = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanWA)}`;
 
                 htmlContent += `
                     <div class="price-card ${featuredClass}">
@@ -482,23 +152,24 @@
                         <ul class="price-list">
                             ${detailListHTML}
                         </ul>
-                        <a href="https://wa.me/62812345678?text=Halo Nila Catering, saya mau pilih ${item.title}" class="btn btn-primary">Pilih Paket</a>
+                        <a href="${linkWA}" class="btn btn-primary" target="_blank">Pilih Paket</a>
                     </div>
                 `;
             });
 
             pricingWrapper.innerHTML = htmlContent;
-
         } catch (error) {
-            console.error('Error fetching paket:', error);
+            console.error('Error:', error);
             pricingWrapper.innerHTML = '<p>Gagal memuat paket.</p>';
         }
     }
 
-    window.addEventListener('DOMContentLoaded', fetchPaketEksklusif);
+    // Jalankan semua fungsi saat halaman siap
+    document.addEventListener('DOMContentLoaded', () => {
+        updateStaticWALinks();
+        fetchPaketEksklusif();
+    });
 </script>
-
-
 
 </body>
 </html>

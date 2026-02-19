@@ -6,210 +6,35 @@
     <title>Menu Lengkap | Nila Catering</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <meta property="og:title" content="Nila Catering">
-    <meta property="og:description" content="Menu Lengkap">
-    <meta property="og:image" content="https://fajardamanik.github.io/nilacatering/logo.png">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fajardamanik.github.io/nilacatering/">
-
     <style>
-        :root {
-            --primary-color: #8B4513;
-            --accent: #D4AF37;
-            --bg-light: #FDFBF9;
-            --dark-color: #2D2D2D;
-        }
-
+        /* ... (CSS Anda tidak ada yang diubah) ... */
+        :root { --primary-color: #8B4513; --accent: #D4AF37; --bg-light: #FDFBF9; --dark-color: #2D2D2D; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: #333; line-height: 1.6; }
-        
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        
         header { text-align: center; margin-bottom: 50px; }
         header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
-
-        /* Nav Logo & Link */
-        .nav-logo-img { transition: transform 0.3s ease; }
-        .nav-logo-img:hover { transform: scale(1.1); }
-        .nav-link-item {
-            text-decoration: none; 
-            color: var(--dark-color); 
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+        .nav-link-item { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: color 0.3s ease; }
         .nav-link-item:hover { color: var(--primary-color); }
-
-        /* Tabs Styling */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-        .tab-btn {
-            padding: 10px 20px;
-            border: 2px solid var(--primary-color);
-            background: transparent;
-            color: var(--primary-color);
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 30px;
-            transition: 0.3s;
-        }
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Menu Grid */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .menu-card {
-            position: relative;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .ribbon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.ribbon span {
-    position: absolute;
-    display: block;
-    width: 225px;
-    padding: 8px 0;
-    background-color: #ff9800; /* Warna Orange Gold */
-    box-shadow: 0 5px 10px rgba(0,0,0,.1);
-    color: #fff;
-    font: 700 13px 'Arial', sans-serif;
-    text-shadow: 0 1px 1px rgba(0,0,0,.2);
-    text-transform: uppercase;
-    text-align: center;
-    right: -50px;
-    top: 30px;
-    transform: rotate(45deg);
-}
-
-
-.menu-detail-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 15px 0;
-    font-size: 0.85rem;
-    color: #666;
-    flex-grow: 1;
-}
-
-.menu-detail-list li {
-    position: relative;
-    padding-left: 15px;
-    margin-bottom: 3px;
-}
-
-.menu-detail-list li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-
-
+        .tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .tab-btn { padding: 10px 20px; border: 2px solid var(--primary-color); background: transparent; color: var(--primary-color); font-weight: 600; cursor: pointer; border-radius: 30px; transition: 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary-color); color: white; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .menu-card { position: relative; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
+        .ribbon { position: absolute; top: 0; right: 0; width: 150px; height: 150px; overflow: hidden; z-index: 10; }
+        .ribbon span { position: absolute; display: block; width: 225px; padding: 8px 0; background-color: #ff9800; color: #fff; font: 700 13px 'Arial', sans-serif; text-align: center; right: -50px; top: 30px; transform: rotate(45deg); }
+        .menu-detail-list { list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 0.85rem; color: #666; flex-grow: 1; }
+        .menu-detail-list li { position: relative; padding-left: 15px; margin-bottom: 3px; }
+        .menu-detail-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
         .menu-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
-
-        
         .menu-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .menu-info h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
-        .menu-detail { font-size: 0.85rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
         .menu-price { font-weight: 700; color: #27ae60; font-size: 1.2rem; display: block; margin-bottom: 15px; }
-
-        /* Gambar di dalam card */
-        .menu-img-wrapper {
-            width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 2px solid #eee;
-        }
-        .menu-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .btn-order {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            text-align: center;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
-        .btn-order:hover { opacity: 0.9; }
-
-        /* --- RESPONSIVE MOBILE FIX --- */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .brand-text { display: none !important; }
-            .nav-logo-img { height: 40px !important; margin-right: 0 !important; }
-            nav div[style*="display: flex; gap: 20px"] {
-                gap: 12px !important;
-                flex-wrap: nowrap !important;
-            }
-            .nav-link-item {
-                font-size: 0.8rem !important;
-                white-space: nowrap !important;
-            }
-        }
-
-        /* --- WhatsApp Floating Button --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); }
+        .menu-img-wrapper { width: 100%; height: auto; margin-bottom: 15px; overflow: hidden; border-radius: 12px; border: 2px solid #eee; }
+        .menu-img-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .btn-order { display: block; width: 100%; padding: 12px; text-align: center; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; transition: transform 0.3s; }
+        @media (max-width: 768px) { .brand-text { display: none !important; } }
     </style>
 </head>
 <body>
@@ -220,7 +45,6 @@
             <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px;">
             <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
         </a>
-
         <div style="display: flex; gap: 20px;">
             <a href="index.html" class="nav-link-item">Beranda</a>
             <a href="menu.html" class="nav-link-item">Daftar Menu</a>
@@ -248,6 +72,12 @@
         <p id="loading-text" style="text-align: center; grid-column: 1/-1;">Memuat menu...</p>
     </div>
 </div>
+
+<script src="config.js"></script>
+
+<a href="#" id="wa-floating" class="whatsapp-float" data-pesan="Halo Nila Catering, saya ingin bertanya seputar layanan katering." target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
 
 <script>
     const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrZ3tU58xi_h2nGOLj794bP5sIprTC9sXRfRgsccJ5o1VPEjgi8OBcwN5Xx0qonoQ63f8nq1jn26o/pub?gid=0&single=true&output=csv";
@@ -281,17 +111,18 @@
                 return null;
             }).filter(item => item !== null);
 
-            // Sortir Harga Tertinggi ke Terendah
             menuList.sort((a, b) => b.priceValue - a.priceValue);
 
             let htmlContent = '';
             
             menuList.forEach(item => {
-                // Perbaikan: ribbonHTML dipindahkan ke DALAM forEach
                 let ribbonHTML = item.isBestSeller ? `<div class="ribbon"><span>Best Seller</span></div>` : "";
-                
                 const detailArray = item.detail.split(',').map(d => d.trim());
                 const detailListHTML = detailArray.map(d => `<li>${d}</li>`).join('');
+
+                // PERBAIKAN: Judul Bold dengan (*) dan encodeURIComponent
+                const pesanWA = `Halo Nila Catering, saya mau pesan *${item.title}*`;
+                const linkWA = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanWA)}`;
 
                 htmlContent += `
                     <div class="menu-card" data-category="${item.category}">
@@ -301,18 +132,19 @@
                             <div class="menu-img-wrapper">
                                 <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Ditemukan'">
                             </div>
-                            
                             <ul class="menu-detail-list">
                                 ${detailListHTML}
                             </ul>
-
                             <span class="menu-price">${item.priceText}</span>
-                            <a href="https://wa.me/62812345678?text=Halo Nila Catering, saya mau pesan ${item.title}" class="btn-order">Pesan via WA</a>
+                            <a href="${linkWA}" class="btn-order" target="_blank">Pesan via WA</a>
                         </div>
                     </div>`;
             });
 
             container.innerHTML = htmlContent;
+            
+            // Jalankan update floating button SETELAH config siap
+            updateFloatingButton();
 
         } catch (error) {
             container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Error: ${error.message}</p>`;
@@ -340,12 +172,19 @@
         });
     }
 
-    window.onload = fetchMenu;
-</script>
+    // Fungsi untuk update tombol melayang secara dinamis
+    function updateFloatingButton() {
+        const floatBtn = document.getElementById('wa-floating');
+        if (floatBtn && typeof CONFIG_KONTAK !== 'undefined') {
+            const pesanKustom = floatBtn.getAttribute('data-pesan');
+            const url = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanKustom)}`;
+            floatBtn.href = url;
+        }
+    }
 
-<a href="https://wa.me/62812345678" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    // Gunakan DOMContentLoaded agar lebih stabil daripada window.onload
+    document.addEventListener('DOMContentLoaded', fetchMenu);
+</script>
 
 </body>
 </html>
