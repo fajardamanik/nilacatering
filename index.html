@@ -6,61 +6,17 @@
     <title>Nila Catering | Kelezatan Autentik Indonesia</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* ... (Semua CSS Anda tetap sama) ... */
-        :root { --primary-color: #8B4513; --secondary-color: #D4AF37; --dark-color: #2D2D2D; --light-color: #F9F4F0; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark-color); background-color: white; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?q=80&w=2044&auto=format&fit=crop'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 20px; }
-        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
-        .btn { padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-primary { background-color: var(--secondary-color); color: white; margin-right: 10px; }
-        .btn-secondary { border: 2px solid white; color: white; }
-        .btn:hover { transform: translateY(-3px); opacity: 0.9; }
-        .section-padding { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .pricing-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 50px; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .price-card { border: 1px solid #eee; padding: 40px; border-radius: 15px; transition: 0.3s; position: relative; text-align: center; }
-        .price-card.featured { border: 2px solid var(--secondary-color); transform: scale(1.05); background: var(--light-color); }
-        .badge { background: var(--secondary-color); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; position: absolute; top: -15px; left: 50%; translate: -50%; }
-        .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .price-amount { font-size: 2rem; color: var(--primary-color); font-weight: 700; margin-bottom: 20px; }
-        .price-list { list-style: none; margin-bottom: 30px; text-align: left; }
-        .price-list li { margin-bottom: 10px; font-size: 0.9rem; }
-        .price-list li i { color: green; margin-right: 10px; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; }
-        .menu-img-wrapper { width: 100%; height: auto; margin: 15px auto; overflow: hidden; border-radius: 12px; border: 2px solid #eee; display: block; object-fit: cover; }
-        .btn-outline-primary { padding: 15px 40px; text-decoration: none; border: 2px solid var(--primary-color); color: var(--primary-color); border-radius: 30px; font-weight: 600; display: inline-block; transition: all 0.3s ease; }
-        .btn-outline-primary:hover { background-color: var(--primary-color); color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2); }
-        .nav-link-item { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: color 0.3s ease; }
-        .nav-link-item:hover { color: var(--primary-color); }
-        .trust-indicators { background: #fff; padding: 60px 0; border-bottom: 1px solid #f0f0f0; }
-        .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
-        .indicator-item h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary-color); margin-bottom: 10px; }
-        .indicator-item p { font-size: 0.9rem; color: #666; max-width: 280px; margin: 0 auto; }
-        .trust-svg { width: 60px; height: 60px; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto; transition: transform 0.3s ease; }
-        .testimonial-slider { width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
-        .testimonial-track { display: flex; width: calc(300px * 10); animation: scroll 30s linear infinite; }
-        .testi-card { width: 300px; flex-shrink: 0; background: white; margin: 0 15px; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 3px solid var(--secondary-color); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-300px * 5)); } }
-        @media (max-width: 768px) { .hero-content h1 { font-size: 2.5rem; } .pricing-container { grid-template-columns: 1fr; padding: 0 10px; } .brand-text { display: none !important; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
+
+    <meta property="og:title" content="Nila Catering">
+    <meta property="og:description" content="Kelezatan Autentik Nusantara">
+    <meta property="og:image" content="https://fajardamanik.github.io/nilacatering/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajardamanik.github.io/nilacatering/">
 </head>
 <body>
 
-<nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px;">
-            <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
-        </a>
-        <div style="display: flex; gap: 20px;">
-            <a href="index.html" class="nav-link-item">Beranda</a>
-            <a href="menu.html" class="nav-link-item">Daftar Menu</a>
-            <a href="contact.html" class="nav-link-item">Kontak</a>
-        </div>
-    </div>
-</nav>
+<div id="navbar-placeholder"></div>
 
 <section class="hero">
     <div class="hero-content">
@@ -76,13 +32,21 @@
     <a href="#" target="_blank" class="wa-dynamic" data-pesan="Halo Nila Catering, saya ingin klaim diskon promo member." style="color: #D4AF37; margin-left: 10px; font-weight: bold;">Klaim Diskon via WA</a>
 </div>
 
-<section id="menu" class="section-padding">
-    <h2>Pilihan Paket Katering</h2>
-    <p>Sesuaikan dengan kebutuhan acara spesial Anda</p>
+<section id="menu" class="section-padding" style="text-align: center; margin-top: 20px;">
+    <header>
+        <h1>Pilihan Paket Katering</h1>
+        <p>Sesuaikan dengan kebutuhan acara spesial Anda</p>
+    </header>
     <div class="pricing-container" id="pricing-wrapper">
         <p style="text-align: center; width: 100%;">Memuat paket pilihan...</p>
+        <div class="view-more-container">
+            <a href="menu.html" class="btn btn-view-more">Lihat Menu Lainnya <i class="fas fa-arrow-right"></i></a>
+        </div>
     </div>
 </section>
+<div class="view-more-container">
+            <a href="menu.html" class="btn btn-view-more">Lihat Menu Lainnya <i class="fas fa-arrow-right"></i></a>
+        </div>
 
 <a href="#" class="whatsapp-float wa-dynamic" data-pesan="Halo Nila Catering, ada yang ingin saya tanyakan." target="_blank">
     <i class="fab fa-whatsapp"></i>
@@ -90,86 +54,9 @@
 
 <script src="config.js"></script>
 
-<script>
-    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrZ3tU58xi_h2nGOLj794bP5sIprTC9sXRfRgsccJ5o1VPEjgi8OBcwN5Xx0qonoQ63f8nq1jn26o/pub?gid=0&single=true&output=csv";
+<script src="script.js"></script>
 
-    // 1. Fungsi Update Semua Tombol WhatsApp Statis (Konsultasi, Diskon, Floating)
-    function updateStaticWALinks() {
-        const dynamicLinks = document.querySelectorAll('.wa-dynamic');
-        dynamicLinks.forEach(link => {
-            const pesan = link.getAttribute('data-pesan') || CONFIG_KONTAK.pesanDefault;
-            link.href = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesan)}`;
-        });
-    }
-
-    // 2. Fungsi Ambil Data Paket dari Sheets
-    async function fetchPaketEksklusif() {
-        const pricingWrapper = document.getElementById('pricing-wrapper');
-        try {
-            const response = await fetch(sheetURL);
-            const data = await response.text();
-            const rows = data.split(/\r?\n/).filter(row => row.trim() !== "").slice(1); 
-
-            let paketList = rows.map(row => {
-                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                if (cols.length >= 5) {
-                    const priceRaw = cols[4].replace(/["']/g, "").trim();
-                    const priceValue = parseInt(priceRaw.replace(/[^0-9]/g, "")) || 0;
-                    return {
-                        category: cols[0].replace(/["']/g, "").trim().toLowerCase(),
-                        title: cols[1].replace(/["']/g, "").trim(),
-                        image: cols[2].replace(/["']/g, "").trim(),
-                        detail: cols[3].replace(/["']/g, "").trim(),
-                        priceText: priceRaw,
-                        priceValue: priceValue,
-                        isBestSeller: (cols[5] && cols[5].replace(/["']/g, "").trim().toLowerCase() === "yes")
-                    };
-                }
-                return null;
-            }).filter(item => item !== null && item.category === "paket");
-
-            paketList.sort((a, b) => a.priceValue - b.priceValue);
-
-            let htmlContent = '';
-            paketList.forEach(item => {
-                const detailArray = item.detail.split(',').map(d => d.trim());
-                const detailListHTML = detailArray.map(d => `<li><i class="fas fa-check"></i> ${d}</li>`).join('');
-                const featuredClass = item.isBestSeller ? 'featured' : '';
-                const badgeHTML = item.isBestSeller ? '<div class="badge">BEST SELLER</div>' : '';
-
-                // Link WA untuk tiap Produk
-                const pesanWA = `Halo Nila Catering, saya mau pesan *${item.title}*`;
-                const linkWA = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanWA)}`;
-
-                htmlContent += `
-                    <div class="price-card ${featuredClass}">
-                        ${badgeHTML}
-                        <h3>${item.title}</h3>
-                        <div class="menu-img-wrapper">
-                            <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Ditemukan'" style="width:100%; border-radius:12px;">
-                        </div>
-                        <div class="price-amount">${item.priceText}</div>
-                        <ul class="price-list">
-                            ${detailListHTML}
-                        </ul>
-                        <a href="${linkWA}" class="btn btn-primary" target="_blank">Pilih Paket</a>
-                    </div>
-                `;
-            });
-
-            pricingWrapper.innerHTML = htmlContent;
-        } catch (error) {
-            console.error('Error:', error);
-            pricingWrapper.innerHTML = '<p>Gagal memuat paket.</p>';
-        }
-    }
-
-    // Jalankan semua fungsi saat halaman siap
-    document.addEventListener('DOMContentLoaded', () => {
-        updateStaticWALinks();
-        fetchPaketEksklusif();
-    });
-</script>
+<div id="footer-placeholder"></div>
 
 </body>
 </html>

@@ -6,6 +6,7 @@
     <title>Hubungi Kami | Nila Catering</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 
     <meta property="og:title" content="Nila Catering">
     <meta property="og:description" content="Hubungi Kami">
@@ -179,20 +180,7 @@
 </head>
 <body>
 
-<nav>
-    <div class="nav-container">
-        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img">
-            <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
-        </a>
-
-        <div style="display: flex; gap: 20px;">
-            <a href="index.html" class="nav-link-item">Beranda</a>
-            <a href="menu.html" class="nav-link-item">Daftar Menu</a>
-            <a href="contact.html" class="nav-link-item">Kontak</a>
-        </div>
-    </div>
-</nav>
+<div id="navbar-placeholder"></div>
 
 <div class="container">
     <header>
@@ -315,15 +303,11 @@
 
 
 
-<script src="config.js"></script>
 
 <a href="#" id="wa-floating" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<footer style="background: var(--dark-color); color: white; padding: 40px 20px; text-align: center;">
-    <p>&copy; 2026 Nila Catering. All Rights Reserved.</p>
-</footer>
 
 <script>
     function toggleFAQ(element) {
@@ -352,6 +336,15 @@ function updateFloatingButton() {
 // Panggil fungsi ini agar tombol melayang langsung terisi link-nya
 updateFloatingButton();
 </script>
+
+
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+<div id="footer-placeholder"></div>
+
 
 
 </body>

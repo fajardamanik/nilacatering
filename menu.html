@@ -6,69 +6,25 @@
     <title>Menu Lengkap | Nila Catering</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --primary-color: #8B4513; --accent: #D4AF37; --bg-light: #FDFBF9; --dark-color: #2D2D2D; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: #333; line-height: 1.6; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 50px; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary-color); margin-bottom: 10px; }
-        .nav-link-item { text-decoration: none; color: var(--dark-color); font-weight: 600; transition: color 0.3s ease; }
-        .nav-link-item:hover { color: var(--primary-color); }
-        .tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-        .tab-btn { padding: 10px 20px; border: 2px solid var(--primary-color); background: transparent; color: var(--primary-color); font-weight: 600; cursor: pointer; border-radius: 30px; transition: 0.3s; }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary-color); color: white; }
-        
-        /* GRID SYSTEM */
-        .menu-grid { display: grid; gap: 25px; margin: 0 auto; justify-content: center; width: 100%; }
-        .grid-1-item { grid-template-columns: minmax(300px, 400px); }
-        .grid-2x2 { grid-template-columns: repeat(2, minmax(300px, 400px)); max-width: 850px; }
-        .grid-3-items { grid-template-columns: repeat(3, minmax(280px, 1fr)); max-width: 1100px;}
-
-        .menu-card { position: relative; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent; display: flex; flex-direction: column; }
-        .ribbon { position: absolute; top: 0; right: 0; width: 150px; height: 150px; overflow: hidden; z-index: 10; }
-        .ribbon span { position: absolute; display: block; width: 225px; padding: 8px 0; background-color: #ff9800; color: #fff; font: 700 13px 'Arial', sans-serif; text-align: center; right: -50px; top: 30px; transform: rotate(45deg); }
-        .menu-detail-list { list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 0.85rem; color: #666; flex-grow: 1; }
-        .menu-detail-list li { position: relative; padding-left: 15px; margin-bottom: 3px; }
-        .menu-detail-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-        .menu-card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--accent); }
-        .menu-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .menu-info h3 { margin-bottom: 10px; color: var(--primary-color); font-size: 1.3rem; }
-        .menu-price { font-weight: 700; color: #27ae60; font-size: 1.2rem; display: block; margin-bottom: 15px; }
-        .menu-img-wrapper { width: 100%; height: auto; margin-bottom: 15px; overflow: hidden; border-radius: 12px; border: 2px solid #eee; }
-        .menu-img-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .btn-order { display: block; width: 100%; padding: 12px; text-align: center; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; transition: transform 0.3s; }
-        
-        @media (max-width: 768px) {
-            .brand-text { display: none !important; }
-            .menu-grid, .grid-2x2, .grid-3-items, .grid-1-item { grid-template-columns: 1fr !important; max-width: 100% !important;} 
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    
+    <meta property="og:title" content="Nila Catering">
+    <meta property="og:description" content="Katalog Menu Kami">
+    <meta property="og:image" content="https://fajardamanik.github.io/nilacatering/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajardamanik.github.io/nilacatering/">
 </head>
 <body>
 
-<nav style="background: white; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
-        <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-            <img src="logo.png" alt="Nila Catering Logo" class="nav-logo-img" style="height: 50px; width: auto; margin-right: 10px;">
-            <span class="brand-text" style="font-family: 'Playfair Display', serif; font-weight: bold; color: var(--primary-color); font-size: 1.5rem;">Nila Catering</span>
-        </a>
-        <div style="display: flex; gap: 20px;">
-            <a href="index.html" class="nav-link-item">Beranda</a>
-            <a href="menu.html" class="nav-link-item">Daftar Menu</a>
-            <a href="contact.html" class="nav-link-item">Kontak</a>
-        </div>
-    </div>
-</nav>
+<div id="navbar-placeholder"></div>
 
-<div class="container">
+<div class="container" style="text-align: center; margin-top: 20px; ">
     <header>
         <h1>Katalog Menu Kami</h1>
         <p>Pilih hidangan terbaik untuk momen istimewa Anda</p>
     </header>
 
-    <div class="tabs">
+    <div class="tabs" style="margin-top: 20px">
         <button class="tab-btn active" onclick="filterMenu('all')">Semua</button>
         <button class="tab-btn" onclick="filterMenu('tumpeng')">Nasi Tumpeng</button>
         <button class="tab-btn" onclick="filterMenu('paket')">Paket</button>
@@ -82,145 +38,14 @@
     </div>
 </div>
 
-<script src="config.js"></script>
-
-<a href="#" id="wa-floating" class="whatsapp-float" data-pesan="Halo Nila Catering, saya ingin bertanya seputar layanan katering." target="_blank">
+<a href="#" id="wa-floating" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<script>
-    const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRjrZ3tU58xi_h2nGOLj794bP5sIprTC9sXRfRgsccJ5o1VPEjgi8OBcwN5Xx0qonoQ63f8nq1jn26o/pub?gid=0&single=true&output=csv";
+<script src="config.js"></script>
+    
+<script src="script.js"></script>
 
-    // FUNGSI BARU: Update layout berdasarkan menu yang terlihat
-    function updateGridLayout() {
-        const container = document.getElementById('menu-container');
-        const visibleCards = Array.from(container.querySelectorAll('.menu-card'))
-                                  .filter(card => card.style.display !== 'none');
-        
-        const count = visibleCards.length;
-
-        // Reset class dan style inline
-        container.classList.remove('grid-1-item', 'grid-2x2', 'grid-3-items');
-        container.style.gridTemplateColumns = "";
-        container.style.maxWidth = "";
-
-        if (count === 1) {
-            container.classList.add('grid-1-item');
-        } else if (count === 3) {
-            container.classList.add('grid-3-items');
-        } else if (count === 2 || count === 4) {
-            container.classList.add('grid-2x2');
-        } else {
-            // Default untuk jumlah lain
-            container.style.gridTemplateColumns = "repeat(auto-fit, minmax(300px, 1fr))";
-            container.style.maxWidth = "1100px";
-        }
-    }
-
-    async function fetchMenu() {
-        const container = document.getElementById('menu-container');
-        try {
-            const response = await fetch(sheetURL);
-            if (!response.ok) throw new Error('Gagal mengambil data');
-            
-            const data = await response.text();
-            const rows = data.split(/\r?\n/).filter(row => row.trim() !== "").slice(1); 
-
-            let menuList = rows.map(row => {
-                const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                if (cols.length >= 5) {
-                    const rawPrice = cols[4].replace(/["']/g, "").trim();
-                    const numericPrice = parseInt(rawPrice.replace(/[^0-9]/g, "")) || 0;
-                    const bestSeller = cols[5] ? cols[5].replace(/["']/g, "").trim().toLowerCase() : "";
-
-                    return {
-                        category: cols[0].replace(/["']/g, "").trim().toLowerCase(),
-                        title: cols[1].replace(/["']/g, "").trim(),
-                        image: cols[2].replace(/["']/g, "").trim(),
-                        detail: cols[3].replace(/["']/g, "").trim(),
-                        priceText: rawPrice,
-                        priceValue: numericPrice,
-                        isBestSeller: bestSeller === "yes"
-                    };
-                }
-                return null;
-            }).filter(item => item !== null);
-
-            menuList.sort((a, b) => b.priceValue - a.priceValue);
-
-            let htmlContent = '';
-            
-            menuList.forEach(item => {
-                let ribbonHTML = item.isBestSeller ? `<div class="ribbon"><span>Best Seller</span></div>` : "";
-                const detailArray = item.detail.split(',').map(d => d.trim());
-                const detailListHTML = detailArray.map(d => `<li>${d}</li>`).join('');
-
-                const pesanWA = `Halo Nila Catering, saya mau pesan *${item.title}*`;
-                const linkWA = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanWA)}`;
-
-                htmlContent += `
-                    <div class="menu-card" data-category="${item.category}">
-                        ${ribbonHTML}
-                        <div class="menu-info">
-                            <h3>${item.title}</h3>
-                            <div class="menu-img-wrapper">
-                                <img src="${item.image}" alt="${item.title}" onerror="this.src='https://via.placeholder.com/300x200?text=Gambar+Tidak+Ditemukan'">
-                            </div>
-                            <ul class="menu-detail-list">
-                                ${detailListHTML}
-                            </ul>
-                            <span class="menu-price">${item.priceText}</span>
-                            <a href="${linkWA}" class="btn-order" target="_blank">Pesan via WA</a>
-                        </div>
-                    </div>`;
-            });
-
-            container.innerHTML = htmlContent;
-            
-            // Update Grid & Floating Button
-            updateGridLayout();
-            updateFloatingButton();
-
-        } catch (error) {
-            container.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">Error: ${error.message}</p>`;
-            console.error('Detail Error:', error);
-        }
-    }
-
-    function filterMenu(category) {
-        const cards = document.querySelectorAll('.menu-card');
-        const buttons = document.querySelectorAll('.tab-btn');
-
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-            const btnText = btn.innerText.toLowerCase();
-            if (category === 'all' && btnText === 'semua') {
-                btn.classList.add('active');
-            } else if (btnText.includes(category)) {
-                btn.classList.add('active');
-            }
-        });
-
-        cards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            card.style.display = (category === 'all' || cardCategory === category) ? 'flex' : 'none';
-        });
-
-        // PANGGIL DISINI: Update layout setelah filter berubah
-        updateGridLayout();
-    }
-
-    function updateFloatingButton() {
-        const floatBtn = document.getElementById('wa-floating');
-        if (floatBtn && typeof CONFIG_KONTAK !== 'undefined') {
-            const pesanKustom = floatBtn.getAttribute('data-pesan');
-            const url = `https://wa.me/${CONFIG_KONTAK.nomorWA}?text=${encodeURIComponent(pesanKustom)}`;
-            floatBtn.href = url;
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', fetchMenu);
-</script>
-
+<div id="footer-placeholder"></div>
 </body>
 </html>
